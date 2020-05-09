@@ -1,0 +1,117 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "0.0.1"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath:
+  "/api"
+  ## paths for the application
+paths:
+  /restaurant:
+    get:
+      operationId: "restaurant.read_all"
+      tags:
+        - "Restaurant"
+      summary: "restaurant structure supported by the server"
+      description: "read the list of restaurants"
+      responses:
+        200:
+          description: "succesfull read of person"
+          schema:
+            type: "array"
+            items:
+              properties:
+                rest_name:
+                  type: "string"
+                rest_id:
+                  type: "integer"
+                logo:
+                  type: "string"
+                qr:
+                  type: "string"
+                email:
+                  type: "string"
+                platos:
+                  type: "array"
+                  items:
+                    properties:
+                      name:
+                        type: "string"
+                      id:
+                        type: "integer"
+                      price:
+                        type: "number"
+                      description:
+                        type: "string"
+                      imagen:
+                        type: "string"
+                      categoria:
+                        type: "array"
+                        items:
+                          properties:
+                            entrante:
+                              type: "boolean"
+                            ensalada:
+                              type: "boolean"
+                            ave:
+                              type: "boolean"
+                            carne:
+                              type: "boolean"
+                            bebida:
+                              type: "boolean"
+                      alergenos:
+                        type: "array"
+                        items:
+                          properties:
+                            gluten:
+                              type: "boolean"
+                            leche:
+                              type: "boolean"
+                            huevo:
+                              type: "boolean"
+                            pescado:
+                              type: "boolean"
+                          # añadir resto de alergenos
+                      meGusta:
+                        type: "integer"
+                      horario:
+                        type: "array"
+                        items:
+                          properties:
+                            apertura:
+                              type: "string"
+                            cierre:
+                              type: "string"
+                timestamp:
+                  type: "string"
+    post:
+      operationId: restaurant.create
+      tags:
+        - Restaurant
+      summary: Create a restaurant and add to restaurants list
+      description: Create a restaurant in restaurants list
+      parameters:
+        - name: restaurant
+          in: body
+          description: restaurant to create
+          required: True
+          schema:
+            type: object
+            properties:
+              rest_name:
+                type: string
+                description: Name of the restaurant
+              email:
+                type: string
+                description: Email of the restaurant
+              logo:
+                type: string
+                description: Url de la imagen del logo
+      responses:
+        201:
+          description: Succesfully created restaurant in list

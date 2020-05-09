@@ -1,0 +1,25 @@
+{
+    "restautant_name": "Awesome Place",
+    "logo": "url/logo.png",
+    "qr": "urls/qr.png",
+    "email": "email@email.com(opens in new tab)",
+    "categorias": [
+        "entrantes",
+        "ensaladas",
+        "aves",
+        "carnes",
+        "bebidas"
+    ],
+    "platos": [
+        {
+            "name": "ensalada cesar",
+            "price": 11.20,
+            "description": "lorem ipsum ta ta ta...",
+            "foto": "url/foto.jpg",
+            "categoria": 1,
+            "alergenos": [1,2,3],
+            "meGusta": 4,
+            "horario": ["..."]
+        }
+    ]
+}
