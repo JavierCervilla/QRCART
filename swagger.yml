@@ -115,3 +115,75 @@ paths:
       responses:
         201:
           description: Succesfully created restaurant in list
+          schema:
+            type: array
+            items:
+              properties:
+                rest_name:
+                  type: "string"
+                  description: Name of the restaurant.
+                email:
+                  type: "string"
+                  description: Email of the restaurant.
+                logo:
+                  type: "string"
+                  description: Url to image src of logo.
+                rest_id:
+                  type: "integer"
+                  description: Unique identifier of restaurant.
+                qr:
+                  type: "string"
+                  description: Url to QR image of restaurant.
+                platos:
+                  type: "array"
+                  items:
+                    properties:
+                      name:
+                        type: "string"
+                      id:
+                        type: "integer"
+                      price:
+                        type: "number"
+                      description:
+                        type: "string"
+                      imagen:
+                        type: "string"
+                      categoria:
+                        type: "array"
+                        items:
+                          properties:
+                            entrante:
+                              type: "boolean"
+                            ensalada:
+                              type: "boolean"
+                            ave:
+                              type: "boolean"
+                            carne:
+                              type: "boolean"
+                            bebida:
+                              type: "boolean"
+                      alergenos:
+                        type: "array"
+                        items:
+                          properties:
+                            gluten:
+                              type: "boolean"
+                            leche:
+                              type: "boolean"
+                            huevo:
+                              type: "boolean"
+                            pescado:
+                              type: "boolean"
+                          # añadir resto de alergenos
+                      meGusta:
+                        type: "integer"
+                      horario:
+                        type: "array"
+                        items:
+                          properties:
+                            apertura:
+                              type: "string"
+                            cierre:
+                              type: "string"
+                timestamp:
+                  type: "string"

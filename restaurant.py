@@ -1,8 +1,13 @@
 from datetime import datetime
+from flask import make_response, abort
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
-
+crest = {
+	"rest_name" : "PruebaRest",
+	"email" : "pruebarest@test.es",
+	"logo" : "./src/logoprueba.png",
+}
 RESTAURANTES = {
 	"BKING": {
 		"rest_name" : "Burguer King",
@@ -177,6 +182,7 @@ def read_all():
 	"""
 	#creando la lista de restaurantes
 	return [RESTAURANTES[key] for key in sorted(RESTAURANTES.keys())]
+
 def create(restaurant):
 	"""
 	crea un restaurante y lo añade a la lista de restaurantes
@@ -192,10 +198,13 @@ def create(restaurant):
 		RESTAURANTES[rest_name] = {
 			"rest_name" : rest_name,
 			"email" : email,
-			"logo" : logo
+			"logo" : logo,
+			"timestamp" : get_timestamp()
+
 		}
 		return make_response(
-			"{rest_name} succesfully created".format(rest_name=rest_name), 201
+			"{rest_name} succesfully created".format(rest_name=rest_name),
+			201
 		)
 	else:
 		abort(
